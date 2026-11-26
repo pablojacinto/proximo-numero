@@ -273,8 +273,8 @@
     const d2 = `${fim.getFullYear()}${String(fim.getMonth() + 1).padStart(2, "0")}${String(fim.getDate()).padStart(2, "0")}`;
     const limpa = (s) => String(s).replace(/[,;\\]/g, (x) => "\\" + x).replace(/\n/g, " ");
     return [
-      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Prazo Aberto//PT-BR", "BEGIN:VEVENT",
-      `UID:${c.id}@prazo-aberto`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`,
+      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Próximo Número//PT-BR", "BEGIN:VEVENT",
+      `UID:${c.id}@proximo-numero`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`,
       `DTSTART;VALUE=DATE:${d}`, `DTEND;VALUE=DATE:${d2}`,
       `SUMMARY:${limpa("Prazo: " + c.periodico + " – " + c.titulo)}`,
       `DESCRIPTION:${limpa(c.link)}`, `URL:${c.link}`,
@@ -302,7 +302,7 @@
     const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const linhas = [cols.map((c) => q(c[0])).join(";")];
     ultimo.forEach((c) => linhas.push(cols.map(([, k]) => q(typeof k === "function" ? k(c) : c[k])).join(";")));
-    baixar("prazo-aberto-chamadas.csv", "﻿" + linhas.join("\r\n"), "text/csv;charset=utf-8");
+    baixar("proximo-numero-chamadas.csv", "﻿" + linhas.join("\r\n"), "text/csv;charset=utf-8");
   }
 
   function limpar() {

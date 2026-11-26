@@ -1,8 +1,8 @@
-# Prazo Aberto
+# Próximo Número
 
 Dossiês, special issues e chamadas de livros com prazo aberto em Educação, Psicologia e Ciências Humanas e Sociais, nacionais e internacionais.
 
-Site: https://pablojacinto.github.io/prazo-aberto/
+Site: https://pablojacinto.github.io/proximo-numero/
 
 - Só aparecem chamadas com prazo a partir da data de hoje (as vencidas somem sozinhas).
 - Filtros: abrangência (nacional/internacional), tipo, área, Qualis, prazo, taxas.

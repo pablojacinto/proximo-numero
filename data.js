@@ -1,4 +1,4 @@
-// Prazo Aberto — base de chamadas abertas
+// Próximo Número — base de chamadas abertas
 // Cada item foi conferido na fonte indicada em "fonte" na data de "verificado".
 // Campos: id, tipo (dossie | special | proposta | livro | capitulos), escopo (nacional | internacional),
 // periodico, instituicao, pais, issn, areas[], qualis, indicador, apc, titulo, organizacao,
