@@ -7,17 +7,18 @@
 <meta name="description" content="Dossiês, special issues e chamadas de livros com prazo aberto em Educação, Psicologia e Ciências Humanas e Sociais. Nacionais e internacionais, com Qualis, prazos, síntese e link para a chamada original.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=202611261435">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=202611261446">
 </head>
 <body>
 <a class="skip" href="#lista">Ir para a lista de chamadas</a>
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="logo" href="./">Próximo Número</a>
+    <a class="logo" href="./"><i aria-hidden="true"><b></b><b></b><b></b><b></b></i>Próximo Número</a>
     <nav aria-label="Seções">
       <a href="#lista">Chamadas</a>
+      <a href="#passos">Como usar</a>
       <a href="#sobre">Como a lista é feita</a>
     </nav>
   </div>
@@ -25,21 +26,132 @@
 
 <section class="hero">
   <div class="wrap hero-grade">
-   <div class="hero-texto">
-    <h1>Onde publicar agora em Educação, Psicologia e Ciências Humanas</h1>
-    <p class="sub">Dossiês, special issues e editais de livros com submissão aberta, no Brasil e no exterior. Cada chamada traz prazo, Qualis, síntese e o link para o texto original.</p>
-    <form class="busca" onsubmit="return false" role="search">
-      <label class="sr" for="f-busca">Buscar chamadas</label>
-      <input type="search" id="f-busca" placeholder="Busque por tema, revista ou organizador" autocomplete="off">
-    </form>
-    <p class="numeros" id="numeros"></p>
-   </div>
-   <aside class="agenda urgentes" aria-labelledby="urg-titulo">
-     <h2 id="urg-titulo">Fecham nos próximos 15 dias</h2>
-     <ol id="urgentes"></ol>
-     <button type="button" class="agenda-mais" id="ver-urgentes">Ver todas na lista</button>
-   </aside>
+    <div class="hero-texto">
+      <h1>Seu próximo artigo tem <span>endereço</span></h1>
+      <p class="sub">Dossiês, special issues e editais de livros com submissão aberta em Educação, Psicologia e Ciências Humanas. Prazo, Qualis, síntese e link para a chamada original, num só lugar.</p>
+      <form class="busca" onsubmit="document.getElementById('lista').scrollIntoView();return false" role="search">
+        <label class="sr" for="f-busca">Buscar chamadas</label>
+        <input type="search" id="f-busca" placeholder="Busque por tema, revista ou organizador" autocomplete="off">
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+
+    <div class="mosaico" aria-label="Atalhos para a lista">
+      <button type="button" class="t t-azul t-grande" data-atalho="todas">
+        <svg class="ilu" viewBox="0 0 220 200" aria-hidden="true">
+          <g transform="rotate(-6 110 100)">
+            <rect x="46" y="18" width="118" height="156" rx="6" fill="#fff"/>
+            <rect x="62" y="36" width="70" height="8" rx="4" fill="#1d3fc4"/>
+            <rect x="62" y="54" width="86" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="62" y="66" width="80" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="60" y="76" width="90" height="10" rx="3" fill="#ffc928" opacity=".75"/>
+            <rect x="62" y="79" width="84" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="62" y="92" width="88" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="62" y="104" width="60" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="62" y="122" width="86" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="62" y="134" width="74" height="5" rx="2.5" fill="#c9d2f2"/>
+            <rect x="62" y="146" width="40" height="5" rx="2.5" fill="#c9d2f2"/>
+          </g>
+          <g transform="rotate(38 170 120)">
+            <rect x="160" y="40" width="16" height="104" rx="8" fill="#0f1630"/>
+            <rect x="160" y="40" width="16" height="22" rx="8" fill="#ffc928"/>
+            <path d="M160 144 L176 144 L168 166 Z" fill="#f5f6fb"/>
+            <path d="M166 158 L170 158 L168 166 Z" fill="#0f1630"/>
+          </g>
+        </svg>
+        <span class="t-num" id="t-total">0</span>
+        <span class="t-txt">chamadas abertas para o seu artigo</span>
+      </button>
+
+      <button type="button" class="t t-amarelo" data-atalho="nacional">
+        <svg class="ilu-p" viewBox="0 0 80 70" aria-hidden="true">
+          <rect x="8" y="46" width="64" height="12" rx="3" fill="#1d3fc4"/>
+          <rect x="12" y="32" width="58" height="12" rx="3" fill="#0f8a63"/>
+          <rect x="6" y="18" width="62" height="12" rx="3" fill="#ff6f61"/>
+          <rect x="14" y="21" width="20" height="3" rx="1.5" fill="#fff" opacity=".8"/>
+          <rect x="18" y="35" width="24" height="3" rx="1.5" fill="#fff" opacity=".8"/>
+          <rect x="14" y="49" width="18" height="3" rx="1.5" fill="#fff" opacity=".8"/>
+        </svg>
+        <span class="t-num" id="t-nac">0</span><span class="t-txt">nacionais</span>
+      </button>
+
+      <button type="button" class="t t-verde" data-atalho="internacional">
+        <svg class="ilu-p" viewBox="0 0 80 70" aria-hidden="true">
+          <circle cx="40" cy="36" r="24" fill="none" stroke="#fff" stroke-width="4"/>
+          <ellipse cx="40" cy="36" rx="10" ry="24" fill="none" stroke="#fff" stroke-width="3"/>
+          <path d="M17 28 H63 M17 44 H63" stroke="#fff" stroke-width="3"/>
+        </svg>
+        <span class="t-num" id="t-int">0</span><span class="t-txt">internacionais</span>
+      </button>
+
+      <button type="button" class="t t-coral" data-atalho="urgentes">
+        <svg class="ilu-p" viewBox="0 0 80 70" aria-hidden="true">
+          <rect x="12" y="10" width="56" height="54" rx="8" fill="#fff"/>
+          <rect x="12" y="10" width="56" height="15" rx="8" fill="#0f1630"/>
+          <rect x="12" y="18" width="56" height="7" fill="#0f1630"/>
+          <rect x="24" y="5" width="5" height="12" rx="2.5" fill="#0f1630"/>
+          <rect x="51" y="5" width="5" height="12" rx="2.5" fill="#0f1630"/>
+          <g fill="#c9d2f2"><rect x="20" y="32" width="8" height="7" rx="2"/><rect x="36" y="32" width="8" height="7" rx="2"/><rect x="20" y="45" width="8" height="7" rx="2"/><rect x="52" y="45" width="8" height="7" rx="2"/></g>
+          <circle cx="56" cy="35.5" r="8" fill="none" stroke="#ff6f61" stroke-width="3"/>
+          <circle cx="40" cy="48.5" r="8" fill="none" stroke="#ff6f61" stroke-width="3"/>
+        </svg>
+        <span class="t-num" id="t-urg">0</span><span class="t-txt">fecham em 15 dias</span>
+      </button>
+
+      <button type="button" class="t t-tinta" data-atalho="a1">
+        <svg class="ilu-p" viewBox="0 0 80 70" aria-hidden="true">
+          <path d="M28 44 L22 66 L32 60 L38 68 L40 46 Z M52 44 L58 66 L48 60 L42 68 L40 46 Z" fill="#ffc928"/>
+          <circle cx="40" cy="30" r="22" fill="#ffc928"/>
+          <circle cx="40" cy="30" r="15" fill="none" stroke="#0f1630" stroke-width="2.5" stroke-dasharray="3 3"/>
+          <text x="40" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#0f1630" font-family="Bricolage Grotesque, sans-serif">A1</text>
+        </svg>
+        <span class="t-num" id="t-a1">0</span><span class="t-txt">em revistas Qualis A1</span>
+      </button>
+
+      <button type="button" class="t t-branco t-larga" data-atalho="livros">
+        <svg class="ilu-p" viewBox="0 0 110 70" aria-hidden="true">
+          <path d="M55 18 C42 10 24 10 10 14 V60 C24 56 42 56 55 64 Z" fill="#1d3fc4"/>
+          <path d="M55 18 C68 10 86 10 100 14 V60 C86 56 68 56 55 64 Z" fill="#0f8a63"/>
+          <g stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"><path d="M20 26 C30 23 38 23 46 26"/><path d="M20 35 C30 32 38 32 46 35"/><path d="M20 44 C30 41 38 41 46 44"/><path d="M64 26 C72 23 80 23 90 26"/><path d="M64 35 C72 32 80 32 90 35"/></g>
+        </svg>
+        <span class="t-num" id="t-liv">0</span><span class="t-txt">editais de livros e chamadas de capítulos</span>
+      </button>
+    </div>
   </div>
+</section>
+
+<section class="passos wrap" id="passos" aria-labelledby="passos-titulo">
+  <h2 id="passos-titulo">Do rascunho à submissão</h2>
+  <ol class="passos-lista">
+    <li>
+      <svg viewBox="0 0 90 70" aria-hidden="true"><rect x="16" y="8" width="46" height="56" rx="5" fill="#fff" stroke="#0f1630" stroke-width="2.5"/><g fill="#c9d2f2"><rect x="24" y="18" width="30" height="4" rx="2"/><rect x="24" y="28" width="26" height="4" rx="2"/><rect x="24" y="38" width="30" height="4" rx="2"/></g><path d="M54 52 L76 22 L82 27 L60 57 L52 59 Z" fill="#ffc928" stroke="#0f1630" stroke-width="2.5" stroke-linejoin="round"/></svg>
+      <h3>Tenha o texto em mãos</h3>
+      <p>Um artigo pronto, um ensaio em andamento ou a tese que vai virar livro.</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 90 70" aria-hidden="true"><circle cx="38" cy="32" r="18" fill="#fff" stroke="#0f1630" stroke-width="3"/><path d="M51 45 L70 62" stroke="#0f1630" stroke-width="7" stroke-linecap="round"/><path d="M30 32 H46 M38 24 V40" stroke="#1d3fc4" stroke-width="3" stroke-linecap="round"/></svg>
+      <h3>Ache o dossiê do seu tema</h3>
+      <p>Busque pelo assunto e filtre por área, Qualis, país e tipo de chamada.</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 90 70" aria-hidden="true"><rect x="14" y="10" width="50" height="50" rx="7" fill="#fff" stroke="#0f1630" stroke-width="2.5"/><rect x="14" y="10" width="50" height="13" rx="7" fill="#ff6f61"/><rect x="14" y="17" width="50" height="6" fill="#ff6f61"/><circle cx="50" cy="42" r="9" fill="none" stroke="#ff6f61" stroke-width="3"/><circle cx="68" cy="50" r="13" fill="#0f8a63"/><path d="M62 50 L67 55 L75 45" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Confira prazo e normas</h3>
+      <p>Cada ficha resume o tema, os organizadores, o prazo e as taxas.</p>
+    </li>
+    <li>
+      <svg viewBox="0 0 90 70" aria-hidden="true"><path d="M10 34 L78 10 L58 62 L44 44 Z" fill="#1d3fc4" stroke="#0f1630" stroke-width="2.5" stroke-linejoin="round"/><path d="M44 44 L78 10 L36 40 Z" fill="#5b78e6" stroke="#0f1630" stroke-width="2.5" stroke-linejoin="round"/><path d="M36 40 L40 56 L44 44" fill="#0f1630"/></svg>
+      <h3>Submeta na revista</h3>
+      <p>O botão leva direto à chamada original, e o prazo vai para a sua agenda.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="urgentes wrap" aria-labelledby="urg-titulo">
+  <div class="sec-cab">
+    <h2 id="urg-titulo">Fecham nos próximos dias</h2>
+    <button type="button" class="link-sec" id="ver-urgentes">Ver todas</button>
+  </div>
+  <div class="urg-grade" id="urgentes"></div>
 </section>
 
 <div class="wrap corpo">
@@ -154,7 +266,7 @@
   </div>
 </footer>
 
-<script src="data.js?v=202611261435"></script>
-<script src="app.js?v=202611261435"></script>
+<script src="data.js?v=202611261446"></script>
+<script src="app.js?v=202611261446"></script>
 </body>
 </html>

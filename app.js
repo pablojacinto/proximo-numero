@@ -190,17 +190,24 @@
     const u = abertas.filter((c) => c._prazo && dias(c._prazo) <= 15).sort((a, b) => a._prazo - b._prazo);
     const sec = $(".urgentes");
     if (!u.length) { sec.hidden = true; return; }
-    $("#urg-titulo").textContent = `Fecham nos próximos 15 dias`;
-    $("#urgentes").innerHTML = u.slice(0, 6).map((c) => `
-      <li class="${urgencia(c)}"><a href="#/chamada/${esc(c.id)}">
-        <span class="ag-data"><b>${c._prazo.getDate()}</b>${MES_CURTO[c._prazo.getMonth()]}</span>
-        <span class="ag-txt"><span class="ag-rev">${esc(c.periodico)}</span><span class="ag-tit">${esc(c.titulo)}</span></span>
-      </a></li>`).join("");
-    $("#ver-urgentes").textContent = `Ver as ${u.length} chamadas que fecham em 15 dias`;
-    $("#ver-urgentes").addEventListener("click", () => {
-      $("#f-prazo").value = "15"; estado.mes = null; render();
-      document.getElementById("lista").scrollIntoView();
-    });
+    $("#urgentes").innerHTML = u.slice(0, 6).map((c) => {
+      const d = c._prazo;
+      return `<a class="urg-card" href="#/chamada/${esc(c.id)}">
+        <div class="pills"><span class="pill u">${d.getDate()} ${MES_CURTO[d.getMonth()]}, ${textoFalta(c).toLowerCase()}</span>${c.qualis ? `<span class="pill">Qualis ${esc(c.qualis)}</span>` : ""}</div>
+        <h3>${esc(c.titulo)}</h3><p>${esc(c.periodico)}</p></a>`;
+    }).join("");
+    $("#ver-urgentes").textContent = `Ver as ${u.length}`;
+    $("#ver-urgentes").addEventListener("click", () => atalho("urgentes"));
+  }
+
+  function atalho(tipo) {
+    limpar(true);
+    if (tipo === "nacional" || tipo === "internacional") document.querySelector(`input[name="escopo"][value="${tipo}"]`).checked = true;
+    if (tipo === "urgentes") $("#f-prazo").value = "15";
+    if (tipo === "a1") $("#f-qualis").value = "A1";
+    if (tipo === "livros") document.querySelectorAll('input[name="tipo"]').forEach((i) => (i.checked = i.value === "livro"));
+    render();
+    document.getElementById("lista").scrollIntoView();
   }
 
   let ultimo = [];
@@ -232,8 +239,14 @@
 
   function numeros() {
     const nac = abertas.filter((c) => c.escopo === "nacional").length;
-    const livros = abertas.filter((c) => c._tipoGrupo === "livro").length;
-    $("#numeros").innerHTML = `<b>${abertas.length}</b> chamadas abertas agora: <b>${nac}</b> nacionais e <b>${abertas.length - nac}</b> internacionais, incluindo <b>${livros}</b> editais de livros e capítulos.`;
+    const set = (id, n) => { const el = document.getElementById(id); if (el) el.textContent = n; };
+    set("t-total", abertas.length);
+    set("t-nac", nac);
+    set("t-int", abertas.length - nac);
+    set("t-urg", abertas.filter((c) => c._prazo && dias(c._prazo) <= 15).length);
+    set("t-a1", abertas.filter((c) => c.qualis === "A1").length);
+    set("t-liv", abertas.filter((c) => c._tipoGrupo === "livro").length);
+    document.querySelectorAll("[data-atalho]").forEach((b) => b.addEventListener("click", () => atalho(b.dataset.atalho)));
     const [a, m, d] = ATUALIZADO_EM.split("-");
     $("#atualizacao").innerHTML = `<strong>Última atualização: ${d}/${m}/${a}.</strong> A lista é revisada toda segunda-feira, e cada chamada é conferida na página oficial uma vez por mês.`;
   }
@@ -304,23 +317,23 @@
     }
   });
 
-  function limpar() {
+  function limpar(semRender) {
     $("#form-filtros").reset();
     $("#f-busca").value = "";
     estado.mes = null;
-    render();
+    if (semRender !== true) render();
   }
 
   // ── Início ──
-  if (window.matchMedia("(max-width: 900px)").matches) $("#painel-filtros").open = false;
+  if (window.matchMedia("(max-width: 1000px)").matches) $("#painel-filtros").open = false;
   preencherAreas();
   numeros();
   renderUrgentes();
   $("#form-filtros").addEventListener("input", render);
   $("#form-filtros").addEventListener("change", render);
   $("#f-busca").addEventListener("input", render);
-  $("#limpar").addEventListener("click", limpar);
-  $("#limpar2").addEventListener("click", limpar);
+  $("#limpar").addEventListener("click", () => limpar());
+  $("#limpar2").addEventListener("click", () => limpar());
   $("#exportar").addEventListener("click", csv);
   render();
   abrirFicha();
