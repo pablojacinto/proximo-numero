@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Próximo Número · dossiês, special issues e chamadas de livros em aberto</title>
+<meta name="description" content="Dossiês, special issues e chamadas de livros com prazo aberto em Educação, Psicologia e Ciências Humanas e Sociais. Nacionais e internacionais, com Qualis, prazos, síntese e link para a chamada original.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="modelo-a.css">
+</head>
+<body>
+<a class="skip" href="#lista">Ir para a lista de chamadas</a>
+
+<header class="topo">
+  <div class="topo-inner">
+    <div class="marca">
+      <h1>Próximo Número</h1>
+      <p class="lema">Dossiês, special issues e chamadas de livros em Educação, Psicologia e Ciências Humanas e Sociais. Só entra o que ainda está recebendo textos.</p>
+    </div>
+    <p class="status" id="status"></p>
+  </div>
+
+  <section class="regua" aria-label="Prazos nos próximos meses">
+    <div class="regua-trilho" id="regua"></div>
+    <p class="regua-dica">Cada traço é um prazo. Clique num mês para ver só as chamadas que fecham nele.</p>
+  </section>
+</header>
+
+<div class="corpo">
+  <aside class="filtros" aria-label="Filtros">
+    <form id="form-filtros" onsubmit="return false">
+      <label class="campo">
+        <span>Buscar</span>
+        <input type="search" id="f-busca" placeholder="Tema, revista, organizador…" autocomplete="off">
+      </label>
+
+      <fieldset class="campo">
+        <legend>Abrangência</legend>
+        <div class="segmento" role="radiogroup">
+          <label><input type="radio" name="escopo" value="" checked><span>Todas</span></label>
+          <label><input type="radio" name="escopo" value="nacional"><span>Nacionais</span></label>
+          <label><input type="radio" name="escopo" value="internacional"><span>Internacionais</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="campo">
+        <legend>Tipo de chamada</legend>
+        <label class="check"><input type="checkbox" name="tipo" value="dossie" checked> Dossiês</label>
+        <label class="check"><input type="checkbox" name="tipo" value="special" checked> Special issues e monográficos</label>
+        <label class="check"><input type="checkbox" name="tipo" value="proposta" checked> Propostas de dossiê</label>
+        <label class="check"><input type="checkbox" name="tipo" value="livro" checked> Livros e capítulos</label>
+      </fieldset>
+
+      <label class="campo">
+        <span>Área</span>
+        <select id="f-area"><option value="">Todas as áreas</option></select>
+      </label>
+
+      <label class="campo">
+        <span>Qualis</span>
+        <select id="f-qualis">
+          <option value="">Qualquer estrato</option>
+          <option value="A1">A1</option>
+          <option value="A1-A2">A1 ou A2</option>
+          <option value="A1-A4">A1 a A4</option>
+          <option value="sem">Sem Qualis informado</option>
+        </select>
+      </label>
+
+      <label class="campo">
+        <span>Prazo final</span>
+        <select id="f-prazo">
+          <option value="">Qualquer data</option>
+          <option value="15">Próximos 15 dias</option>
+          <option value="30">Próximos 30 dias</option>
+          <option value="60">Próximos 60 dias</option>
+          <option value="90">Próximos 90 dias</option>
+          <option value="longo">Mais de 90 dias</option>
+        </select>
+      </label>
+
+      <label class="check destaque"><input type="checkbox" id="f-gratis"> Esconder chamadas com taxa ou taxa a verificar</label>
+      <label class="check"><input type="checkbox" id="f-abertas"> Só janelas já abertas hoje</label>
+
+      <label class="campo">
+        <span>Ordenar por</span>
+        <select id="f-ordem">
+          <option value="prazo">Prazo mais próximo</option>
+          <option value="prazo-desc">Prazo mais distante</option>
+          <option value="qualis">Qualis</option>
+          <option value="periodico">Revista ou editora (A–Z)</option>
+        </select>
+      </label>
+
+      <div class="acoes-filtro">
+        <button type="button" id="limpar">Limpar filtros</button>
+        <button type="button" id="exportar">Baixar lista (CSV)</button>
+      </div>
+    </form>
+  </aside>
+
+  <main id="lista" tabindex="-1">
+    <p class="resumo" id="resumo" aria-live="polite"></p>
+    <ol class="chamadas" id="chamadas"></ol>
+    <div class="vazio" id="vazio" hidden>
+      <p>Nenhuma chamada aberta com esses filtros.</p>
+      <button type="button" id="limpar2">Limpar filtros</button>
+    </div>
+
+    <section class="sobre" id="sobre">
+      <h2>Como esta lista é feita</h2>
+      <p>Entram apenas chamadas com prazo de submissão a partir de hoje: dossiês e seções temáticas de periódicos, special issues e números monográficos, chamadas de propostas de dossiê e editais de livros ou capítulos em editoras universitárias e acadêmicas. Chamadas vencidas somem sozinhas, pela data do seu navegador.</p>
+      <p>Cada item foi conferido na página da revista ou da editora sempre que ela estava acessível. Quando a página não trazia a data, usamos agregadores confiáveis, e isso aparece no campo Fonte: a lista de chamadas da Faculdade de Educação da Unicamp, o guia de convocatórias da Universidad Antonio Ruiz de Montoya e a Plataforma 9.</p>
+      <p><strong>Qualis.</strong> O estrato mostrado é o informado pela fonte e pode variar por área de avaliação. A classificação oficial 2021–2024 está na Plataforma Sucupira; use o botão Consultar Qualis em cada chamada. Para revistas estrangeiras, o indicador (Scopus, ESCI) vem da fonte citada.</p>
+      <p><strong>Taxas.</strong> “Sem taxa informada” significa que a chamada e a página consultadas não mencionam cobrança. Revistas por assinatura (Taylor &amp; Francis, SAGE, Emerald) não cobram para publicar, mas oferecem acesso aberto pago. Editoras que cobram por capítulo ficaram de fora.</p>
+      <p><strong>Limites.</strong> Muitas revistas de Psicologia trabalham em fluxo contínuo, sem dossiês, por isso aparecem menos aqui. Editais de editoras universitárias costumam ser restritos à própria comunidade; o campo Quem pode submeter avisa quando é o caso. Antes de submeter, confira sempre a chamada original.</p>
+    </section>
+  </main>
+</div>
+
+<dialog id="ficha" aria-labelledby="ficha-titulo">
+  <div class="ficha-corpo" id="ficha-corpo"></div>
+  <form method="dialog"><button class="fechar" aria-label="Fechar ficha">Fechar</button></form>
+</dialog>
+
+<footer class="rodape">
+  <p class="atualizacao" id="atualizacao"></p>
+  <p>Próximo Número é um levantamento independente para pesquisadores. Confira prazos e normas na chamada original antes de submeter.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>

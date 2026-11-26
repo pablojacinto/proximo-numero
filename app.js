@@ -76,7 +76,7 @@
     const depois = abertas.filter((c) => c._prazo && c._prazo >= fim).length;
     const continuo = abertas.filter((c) => !c._prazo).length;
     $(".regua-dica").innerHTML =
-      `Cada traço é um prazo<span class="legenda-cor" style="background:#8fb0ff"></span>nacional<span class="legenda-cor" style="background:#5fd3c6"></span>internacional. Clique num mês para ver só as chamadas que fecham nele.` +
+      `Cada traço é um prazo<span class="legenda-cor nacional"></span>nacional<span class="legenda-cor internacional"></span>internacional. Clique num mês para ver só as chamadas que fecham nele.` +
       (depois ? ` Mais ${depois} fecham depois deste período.` : "") +
       (continuo ? ` ${continuo} em fluxo contínuo.` : "");
   }
@@ -312,10 +312,17 @@
     render();
   }
 
+  function rodape() {
+    const [a, m, d] = ATUALIZADO_EM.split("-");
+    const el = document.getElementById("atualizacao");
+    if (el) el.innerHTML = `<strong>Última atualização: ${d}/${m}/${a}.</strong> A lista é revisada uma vez por semana, às segundas-feiras.`;
+  }
+
   // ── Início ──
   preencherAreas();
   montarRegua();
   status();
+  rodape();
   $("#form-filtros").addEventListener("input", render);
   $("#form-filtros").addEventListener("change", render);
   $("#limpar").addEventListener("click", limpar);

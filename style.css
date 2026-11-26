@@ -178,3 +178,6 @@ dialog form { padding: 0 1.8rem 1.6rem; }
   .traco { animation: desce .6s ease-out both; }
   @keyframes desce { from { transform: scaleY(0); transform-origin: top; } to { transform: scaleY(1); transform-origin: top; } }
 }
+.rodape .atualizacao { color: var(--tinta); margin-bottom: .4rem; }
+.legenda-cor.nacional { background: #8fb0ff; }
+.legenda-cor.internacional { background: #5fd3c6; }

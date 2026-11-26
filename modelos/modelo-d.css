@@ -1,0 +1,38 @@
+/* Modelo D · Fichário
+   Produto: lista de chamadas abertas para pesquisadores
+   Caráter: organizado, tátil, de escritório
+   Mundo: fichas de arquivo e o carimbo de protocolo de uma secretaria
+   Momento: o carimbo de prazo em cada ficha
+   Assinatura: o carimbo levemente inclinado, sempre na mesma cor de tinta */
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap");
+:root {
+  --papel: #e9ebee; --folha: #ffffff; --tinta: #1f2430; --tinta-2: #5c6372;
+  --linha: rgba(31,36,48,.12); --nac: #2d4fa3; --int: #2f6f73;
+  --urgente: #b3261e; --breve: #2d4fa3; --folga: #2d4fa3;
+  --serif: "Spectral", Georgia, serif; --sans: "Work Sans", system-ui, sans-serif; --r: 12px;
+}
+.topo { background: var(--folha); color: var(--tinta); border-bottom: 1px solid var(--linha); }
+.lema, .status, .regua-dica { color: var(--tinta-2); }
+.status strong { color: var(--tinta); }
+.mes { border-left-color: var(--linha); color: var(--tinta-2); height: 72px; }
+.mes-n { color: var(--tinta); }
+.mes[aria-pressed="true"] { background: rgba(45,79,163,.1); }
+.regua-trilho { border-top-color: var(--linha); }
+.traco.nacional { background: var(--nac); }
+.traco.internacional { background: var(--int); }
+.hoje { border-left-color: var(--urgente); } .hoje::after { color: var(--urgente); }
+
+/* fichas em duas colunas */
+.chamadas { border: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 16px; }
+.chamada { background: var(--folha); border: 1px solid var(--linha); border-radius: var(--r);
+  padding: 20px 24px; grid-template-columns: 1fr; gap: 12px; align-content: start; }
+.prazo { display: inline-flex; gap: 8px; align-items: baseline; justify-self: start;
+  border: 2px solid var(--folga); color: var(--folga); border-radius: 6px; padding: 4px 12px; transform: rotate(-2deg); }
+.urgente .prazo { border-color: var(--urgente); color: var(--urgente); }
+.prazo-dia { font-size: 1.4rem; font-weight: 500; }
+.prazo-falta { background: none !important; color: inherit; padding: 0; margin: 0; }
+.prazo-abre { margin: 0; color: inherit; }
+.chamada h3 { font-size: 1.15rem; }
+.selo.qualis { background: var(--nac); border-color: var(--nac); }
+@media (max-width: 520px) { .chamadas { grid-template-columns: 1fr; } }
+.legenda-cor.nacional { background: var(--nac); } .legenda-cor.internacional { background: var(--int); }

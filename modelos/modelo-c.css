@@ -1,0 +1,48 @@
+/* Modelo C · Plantão
+   Produto: painel de prazos para quem acompanha submissões ao longo do semestre
+   Caráter: técnico, direto, noturno
+   Mundo: o painel de partidas de um aeroporto e a mesa de trabalho à noite
+   Momento: a régua de prazos, que ocupa a largura toda e domina a tela
+   Assinatura: a contagem regressiva em algarismos tabulares ao lado de cada linha */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+:root {
+  --papel: #18191b; --folha: #202124; --tinta: #e9e8e4; --tinta-2: #a09f99;
+  --linha: rgba(233,232,228,.12); --nac: #e0a43a; --int: #8fb8c9;
+  --urgente: #e0a43a; --breve: #c9c7c0; --folga: #8a8983;
+  --serif: "IBM Plex Sans", system-ui, sans-serif; --sans: "IBM Plex Sans", system-ui, sans-serif; --r: 8px;
+}
+body { font-size: 15px; }
+a { color: var(--tinta); }
+.topo { background: var(--papel); border-bottom: 1px solid var(--linha); }
+.marca h1 { font-weight: 500; font-size: 2rem; letter-spacing: 0; }
+.mes { height: 120px; border-left-color: var(--linha); }
+.regua-trilho { border-top-color: var(--linha); }
+.traco.nacional { background: #e9e8e4; }
+.traco.internacional { background: var(--int); }
+.legenda-cor.nacional { background: #e9e8e4; }
+.legenda-cor.internacional { background: var(--int); }
+input[type="search"], select { background: var(--folha); color: var(--tinta); border-color: var(--linha); }
+.segmento { background: var(--folha); border-color: var(--linha); }
+.segmento input:checked + span { background: var(--tinta); color: var(--papel); }
+button { border-color: var(--linha); color: var(--tinta); }
+button:hover { background: var(--folha); color: var(--tinta); }
+.check input { accent-color: var(--tinta); }
+
+/* linhas compactas, como um painel de partidas */
+.chamadas { border-top: 1px solid var(--linha); }
+.chamada { grid-template-columns: 128px 1fr; gap: 20px; padding: 16px 0; }
+.prazo-dia, .prazo-mes, .prazo-falta { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+.prazo-dia { font-size: 1.6rem; font-weight: 500; }
+.prazo-falta { background: none !important; padding: 0; color: var(--folga); font-weight: 500; }
+.urgente .prazo-falta { color: var(--urgente); }
+.chamada h3 { font-size: 1.05rem; font-weight: 500; }
+.selo { background: transparent; border-color: var(--linha); color: var(--tinta-2); }
+.selo.nacional, .selo.internacional { color: var(--tinta-2); border-color: var(--linha); }
+.selo.qualis { background: var(--tinta); color: var(--papel); border-color: var(--tinta); }
+summary, .acoes a, .acoes button { color: var(--tinta); }
+.detalhe { background: var(--folha); border-left-color: var(--linha); }
+.detalhe p { font-family: var(--sans); }
+.sobre { border-top-color: var(--linha); }
+.sobre p { font-family: var(--sans); }
+dialog { background: var(--folha); color: var(--tinta); }
+.rodape { color: var(--tinta-2); }
