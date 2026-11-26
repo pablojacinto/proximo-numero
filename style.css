@@ -223,3 +223,11 @@ dialog::backdrop { background: rgba(15,22,48,.5); }
   .folhinha { width: 60px; }
   .detalhe dl { grid-template-columns: 1fr; }
 }
+
+/* voltar ao topo */
+.topo-btn { position: fixed; right: 24px; bottom: 24px; z-index: 20; width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--azul); color: #fff; display: grid; place-content: center; box-shadow: 0 6px 18px rgba(15,22,48,.25); transition: background-color .15s ease, transform .15s ease; }
+.topo-btn:hover { background: #1532a3; transform: translateY(-2px); }
+.topo-btn[hidden] { display: none; }
+.topo-btn svg { width: 24px; height: 24px; }
+@media (max-width: 600px) { .topo-btn { right: 16px; bottom: 16px; width: 48px; height: 48px; } }

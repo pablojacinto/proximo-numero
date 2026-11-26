@@ -324,6 +324,15 @@
     if (semRender !== true) render();
   }
 
+  // ── Voltar ao topo ──
+  const topoBtn = document.getElementById("topo-btn");
+  if (topoBtn) {
+    const ver = () => { topoBtn.hidden = window.scrollY < 600; };
+    window.addEventListener("scroll", ver, { passive: true });
+    topoBtn.addEventListener("click", () => window.scrollTo({ top: 0 }));
+    ver();
+  }
+
   // ── Início ──
   if (window.matchMedia("(max-width: 1000px)").matches) $("#painel-filtros").open = false;
   preencherAreas();
