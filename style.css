@@ -34,7 +34,7 @@ button { font-family: inherit; }
 /* navegação */
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
 .logo { white-space: nowrap; display: flex; gap: 10px; align-items: center; font-weight: 800; font-size: 1.35rem; color: var(--tinta); text-decoration: none; letter-spacing: -.01em; }
-.logo i { width: 28px; height: 28px; display: grid; grid-template-columns: 1fr 1fr; border-radius: 7px; overflow: hidden; }
+.logo-ico { width: 34px; height: 34px; flex: none; }
 .logo i b:nth-child(1) { background: var(--azul); } .logo i b:nth-child(2) { background: var(--amarelo); }
 .logo i b:nth-child(3) { background: var(--verde); } .logo i b:nth-child(4) { background: var(--coral); }
 .nav nav { display: flex; gap: 28px; }

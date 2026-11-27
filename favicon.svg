@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><clipPath id="r"><rect width="64" height="64" rx="14"/></clipPath></defs><g clip-path="url(#r)"><rect width="32" height="32" fill="#1d3fc4"/><rect x="32" width="32" height="32" fill="#ffc928"/><rect y="32" width="32" height="32" fill="#0f8a63"/><rect x="32" y="32" width="32" height="32" fill="#ff6f61"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- folha -->
+  <path d="M19 3 H45 V27 H19 Z" fill="#ffffff" stroke="#0f1630" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="24" y="9" width="16" height="3.5" rx="1.75" fill="#ff6f61"/>
+  <rect x="24" y="16" width="11" height="3.5" rx="1.75" fill="#1d3fc4" opacity=".35"/>
+  <!-- rolo com botões -->
+  <rect x="9" y="24" width="46" height="7" rx="3.5" fill="#0f1630"/>
+  <circle cx="7" cy="27.5" r="4.5" fill="#ffc928" stroke="#0f1630" stroke-width="2"/>
+  <circle cx="57" cy="27.5" r="4.5" fill="#ffc928" stroke="#0f1630" stroke-width="2"/>
+  <!-- corpo -->
+  <path d="M10 33 H54 L61 59 Q61.5 62 58.5 62 H5.5 Q2.5 62 3 59 Z" fill="#1d3fc4"/>
+  <!-- leque das hastes -->
+  <path d="M22 34 A10 7 0 0 0 42 34 Z" fill="#0f1630"/>
+  <!-- teclas -->
+  <circle cx="14" cy="46" r="3.2" fill="#ffffff"/><circle cx="22.7" cy="46" r="3.2" fill="#ffc928"/><circle cx="31.4" cy="46" r="3.2" fill="#ffffff"/><circle cx="40.1" cy="46" r="3.2" fill="#ff6f61"/><circle cx="48.8" cy="46" r="3.2" fill="#ffffff"/>
+  <circle cx="18" cy="54" r="3.2" fill="#0f8a63"/><circle cx="26.7" cy="54" r="3.2" fill="#ffffff"/><circle cx="35.4" cy="54" r="3.2" fill="#ffffff"/><circle cx="44.1" cy="54" r="3.2" fill="#ffc928"/>
+</svg>
